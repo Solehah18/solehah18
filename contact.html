@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form and Contact Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <style>
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: #F1F8E9;
+            color: #313E2B;
+            transition: all 0.3s ease;
+            padding-top: 120px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h3 {
+            color: #006400;
+            font-size: 2rem;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        header .logo img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #313E2B;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        header nav a:hover {
+            color: #BDDFB6;
+        }
+
+        header nav a.active {
+            color: #006400;
+            border-bottom: 2px solid #006400;
+        }
+
+        /* Contact Form Section */
+        #contactForm {
+            background: #F1F8E9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        #contactForm input, #contactForm textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactForm button {
+            padding: 15px 30px;
+            background: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #contactForm button:hover {
+            background: #b31111;
+        }
+
+        /* Contact Me Section */
+        #contactMe {
+            padding: 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+        }
+
+        #contactMe h3 {
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons div {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .social-icons div:hover {
+            transform: scale(1.05);
+        }
+
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 20px;
+            background-color: #313E2B;
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #313E2B;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        footer .social-links a:hover {
+            color: #BDDFB6;
+        }
+
+        /* Hide Audio */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo Website">
+            <span>Solehah's Website</span>
+        </div>
+        <nav>
+            <a href="home.html" id="homeLink"><i class="fas fa-home"></i> HOME</a>
+            <a href="biodata.html" id="biodataLink"><i class="fas fa-user"></i> BIODATA</a>
+            <a href="education.html" id="educationLink"><i class="fas fa-graduation-cap"></i> EDUCATION</a>
+            <a href="family.html" id="familyLink"><i class="fas fa-users"></i> FAMILY</a>
+            <a href="experience.html" id="experienceLink"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+            <a href="gallery.html" id="galleryLink"><i class="fas fa-images"></i> GALLERY</a>
+            <a href="contact.html" id="contactLink"><i class="fas fa-phone"></i> CONTACT</a>
+        </nav>
+    </header>
+
+    <script>
+        // Add event listener to all nav links
+        const navLinks = document.querySelectorAll('header nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                // Remove 'active' class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+    <!-- Contact Form Section -->
+    <section id="contactForm">
+        <h3>Contact Form</h3>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Hidden Audio -->
+    <audio id="hiddenAudio" autoplay style="display:none;">
+        <source src="audio/audio8.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(to bottom, #F1F8E9, #E3F2FD); padding: 30px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <h3 style="color: #006400; font-family: 'Georgia', serif; font-size: 1.8rem; margin-bottom: 20px;">Contact Me</h3>
+
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+
+            <!-- Instagram -->
+            <div style="background: #FFF; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 200px; text-align: center; transition: transform 0.3s;">
+                <img src="images/instagram.jpg" alt="Instagram" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                <p style="font-size: 1rem; color: #333;"><strong>Instagram</strong></p>
+                <p><a href="https://instagram.com/slhhaqlh_" target="_blank" style="color: #006400; text-decoration: none;">@slhhaqlh_</a></p>
+            </div>
+
+            <!-- WhatsApp -->
+            <div style="background: #FFF; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 200px; text-align: center; transition: transform 0.3s;">
+                <img src="images/whatsapp.jpg" alt="WhatsApp" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                <p style="font-size: 1rem; color: #333;"><strong>WhatsApp</strong></p>
+                <p><a href="https://wa.me/60198332858" target="_blank" style="color: #006400; text-decoration: none;">+60198332858</a></p>
+            </div>
+
+            <!-- TikTok -->
+            <div style="background: #FFF; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); width: 200px; text-align: center; transition: transform 0.3s;">
+                <img src="images/tiktok.jpg" alt="TikTok" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                <p style="font-size: 1rem; color: #333;"><strong>TikTok</strong></p>
+                <p><a href="https://www.tiktok.com/@slhhaqlh_" target="_blank" style="color: #006400; text-decoration: none;">@slhhaqlh_</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Solehah Aqilah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

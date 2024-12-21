@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        header .logo img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #313E2B;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        header nav a:hover {
+            color: #BDDFB6;
+        }
+
+        header nav a.active {
+            color: #006400;
+            border-bottom: 2px solid #006400;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #gallery h3 {
+            color: #006400;
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four columns */
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #313E2B;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        footer .social-links a:hover {
+            color: #BDDFB6;
+        }
+
+        /* Hide Audio */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo Website">
+            <span>Solehah's Website</span>
+        </div>
+        <nav>
+            <a href="home.html" id="homeLink"><i class="fas fa-home"></i> HOME</a>
+            <a href="biodata.html" id="biodataLink"><i class="fas fa-user"></i> BIODATA</a>
+            <a href="education.html" id="educationLink"><i class="fas fa-graduation-cap"></i> EDUCATION</a>
+            <a href="family.html" id="familyLink"><i class="fas fa-users"></i> FAMILY</a>
+            <a href="experience.html" id="experienceLink"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+            <a href="gallery.html" id="galleryLink" class="active"><i class="fas fa-images"></i> GALLERY</a>
+            <a href="contact.html" id="contactLink"><i class="fas fa-phone"></i> CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Audio (Hidden) -->
+    <audio id="backgroundAudio" loop autoplay>
+        <source src="audio/audio5.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h3>Gallery</h3>
+        <div class="gallery">
+            <a href="#img2"><img src="images/gambar2.jpg" alt="Gallery Image 2"></a>
+            <a href="#img5"><img src="images/gambar6.jpg" alt="Gallery Image 5"></a>
+            <a href="#img9"><img src="images/gambar8.jpg" alt="Gallery Image 9"></a>
+            <a href="#img10"><img src="images/gambar9.jpg" alt="Gallery Image 10"></a>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="img2" class="lightbox">
+            <img src="images/gambar2.jpg" alt="Gallery Image 2">
+        </div>
+        <div id="img5" class="lightbox">
+            <img src="images/gambar6.jpg" alt="Gallery Image 5">
+        </div>
+        <div id="img9" class="lightbox">
+            <img src="images/gambar8.jpg" alt="Gallery Image 9">
+        </div>
+        <div id="img10" class="lightbox">
+            <img src="images/gambar9.jpg" alt="Gallery Image 10">
+        </div>
+    </section>
+
+    <script>
+        // Highlight the active link in the navigation
+        const navLinks = document.querySelectorAll('header nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Solehah Aqilah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+

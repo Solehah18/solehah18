@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solehah's Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome CDN -->
+    <style>
+
+        /* Reset Default Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 120px; 
+            scroll-behavior: smooth; 
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        header .logo img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #313E2B;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        header nav a:hover {
+            color: #BDDFB6;
+        }
+
+        header nav a.active {
+            color: #006400;
+            border-bottom: 2px solid #006400;
+        }
+
+        /* General Styles for the Experience Section */
+        #experience {
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-grow: 1;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        #experience h3 {
+            color: #006400;
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        #experience ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 20px; 
+        }
+
+        #experience li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #experience li:hover {
+            transform: translateX(10px);
+        }
+
+        #experience i {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        /* Image Styling */
+        .experience-img {
+            width: 120px;
+            height: 120px;
+            margin-right: 15px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .experience-img:hover {
+            transform: scale(1.2); 
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #313E2B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        footer .social-links {
+            margin-top: 10px;
+        }
+
+        footer .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #BDDFB6;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Hidden Audio Player */
+        audio {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo Website">
+            <span>Solehah's Website</span>
+        </div>
+        <nav>
+            <a href="home.html" id="homeLink"><i class="fas fa-home"></i> HOME</a>
+            <a href="biodata.html" id="biodataLink"><i class="fas fa-user"></i> BIODATA</a>
+            <a href="education.html" id="educationLink"><i class="fas fa-graduation-cap"></i> EDUCATION</a>
+            <a href="family.html" id="familyLink"><i class="fas fa-users"></i> FAMILY</a>
+            <a href="experience.html" id="experienceLink"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+            <a href="gallery.html" id="galleryLink"><i class="fas fa-images"></i> GALLERY</a>
+            <a href="contact.html" id="contactLink"><i class="fas fa-phone"></i> CONTACT</a>
+        </nav>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('header nav a');
+            const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active'); // Add 'active' class to the current page link
+                }
+            });
+        });
+    </script>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h3>My Experience</h3>
+        <ul>
+            <li>
+                <img src="images/3k.JPG" alt="3K Club" class="experience-img">
+                <i class="fas fa-check-circle"></i> I was once appointed as the vice chairman of the 3K club.
+            </li>
+            <li>
+                <img src="images/sulam.jpg" alt="AJK SULAM Programs" class="experience-img">
+                <i class="fas fa-check-circle"></i> I was appointed as AJK for SULAM Programs.
+            </li>
+            <li>
+                <img src="images/netball.jpg" alt="Netball Event" class="experience-img">
+                <i class="fas fa-check-circle"></i> I once participated in a netball event representing my faculty.
+            </li>
+            <li>
+                <img src="images/NLG.jpg" alt="Sales Assistant" class="experience-img">
+                <i class="fas fa-check-circle"></i> I used to work as a sales assistant at Nasi Lemak Gedik, Kubang Kerian.
+            </li>
+            <li>
+                <img src="images/intern.jpg" alt="Internship Experience" class="experience-img">
+                <i class="fas fa-check-circle"></i> I have had an intern experience at Jabatan Hal Ehwal Agama Islam.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Hidden Audio Section -->
+    <audio autoplay loop>
+        <source src="audio/audio2.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+   <!-- Footer Section -->
+<footer>
+        <p>&copy; 2024 Solehah Aqilah. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

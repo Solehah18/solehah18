@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <style>
+        
+        /* Reset Default Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+            padding-top: 120px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        header .logo img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #313E2B;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        header nav a:hover {
+            color: #BDDFB6;
+            transform: scale(1.1);
+        }
+
+        header nav a.active {
+            color: #006400;
+            border-bottom: 2px solid #006400;
+        }
+
+        /* Education Section Styling */
+        #education {
+            background: linear-gradient(to bottom, #E3F2FD, #F1F8E9);
+            padding: 60px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 120px;
+            animation: slideUp 1s ease-out;
+        }
+
+        #education h3 {
+            font-family: 'Georgia', serif;
+            color: #2E7D32;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* School Section Styling */
+        .school-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 15px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .school-section:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        #education img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #education img:hover {
+            transform: scale(1.1);
+        }
+
+        #education .school-section div {
+            text-align: center;
+        }
+
+        #education p {
+            margin: 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #313E2B;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        footer .social-links a:hover {
+            color: #BDDFB6;
+        }
+
+        /* Keyframes */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Hidden Audio Player */
+        audio {
+            display: none; /* Hide the audio player */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            #education h3 {
+                font-size: 1.8rem;
+            }
+
+            #education .school-section {
+                flex-direction: row;
+                gap: 15px;
+                justify-content: space-around;
+            }
+
+            #education img {
+                width: 120px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo Website">
+            <span>Solehah's Website</span>
+        </div>
+        <nav>
+            <a href="home.html" id="homeLink"><i class="fas fa-home"></i> HOME</a>
+            <a href="biodata.html" id="biodataLink"><i class="fas fa-user"></i> BIODATA</a>
+            <a href="education.html" id="educationLink" class="active"><i class="fas fa-graduation-cap"></i> EDUCATION</a>
+            <a href="family.html" id="familyLink"><i class="fas fa-users"></i> FAMILY</a>
+            <a href="experience.html" id="experienceLink"><i class="fas fa-briefcase"></i> EXPERIENCE</a>
+            <a href="gallery.html" id="galleryLink"><i class="fas fa-images"></i> GALLERY</a>
+            <a href="contact.html" id="contactLink"><i class="fas fa-phone"></i> CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h3><strong>Education</strong></h3>
+
+        <!-- Elementary School Section -->
+        <div class="school-section">
+            <img src="images/skgd.png" alt="Elementary School">
+            <div>
+                <p><strong>Elementary School:</strong> SK Gong Dermin</p>
+            </div>
+        </div>
+
+        <!-- Primary School Section -->
+        <div class="school-section">
+            <img src="images/smkaf.jpg" alt="Primary School">
+            <div>
+                <p><strong>Primary School:</strong> SMKA Falahiah</p>
+            </div>
+        </div>
+
+        <!-- UiTM Section -->
+        <div class="school-section">
+            <img src="images/Uitmlogo.png" alt="UiTM">
+            <div>
+                <p><strong>UiTM:</strong> Diploma in Information Management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Audio Section -->
+    <audio autoplay loop>
+        <source src="audio/audio3.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Solehah Aqilah. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add event listener for active link
+        const navLinks = document.querySelectorAll('header nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+ 
